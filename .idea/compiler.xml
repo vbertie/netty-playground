@@ -6,8 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="client" />
         <module name="netty" />
+        <module name="nettyserver" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="nettyclient" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

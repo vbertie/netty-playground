@@ -1,3 +1,5 @@
+package discard;
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -8,6 +10,16 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 public class DiscardServer {
+
+    public static void main(String[] args) throws Exception {
+        int port = 8081;
+        if (args.length > 0) {
+            port = Integer.parseInt(args[0]);
+        }
+
+        System.out.println(port);
+        new DiscardServer(port).run();
+    }
 
     private int port;
 
@@ -39,16 +51,5 @@ public class DiscardServer {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }
-    }
-
-
-    public static void main(String[] args) throws Exception {
-        int port = 8080;
-        if (args.length > 0) {
-            port = Integer.parseInt(args[0]);
-        }
-
-        System.out.println(port);
-        new DiscardServer(port).run();
     }
 }
